@@ -24,5 +24,16 @@ public class Lab3b {
 			}
 		} while(invalidInput); //Loop to make sure input is valid
 		
+		do {
+			//Loop to print a row
+			for (int j = bottles; j > 0; j--) {
+				System.out.print("R");
+			}
+			//Decrease bottles for new row
+			bottles --;
+			System.out.println("");
+		} while(bottles > 0);
+		System.out.println("***NO MORE BOTTLES OF ROOT BEER ON THE WALL!***");
 	}
 }
+
