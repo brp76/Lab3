@@ -20,17 +20,20 @@ public class Lab4a {
 			System.out.println("(4) - Die");
 			
 			//Function for user to enter choice
-			icecreamChoice(name);
+			iceCreamChoice(name);
 			
-			System.out.print("How many people? > ");
-			count = sc.nextInt();
-			
-		} while (choice != 4);
+			if (choice != 4) {
+				System.out.print("How many people? > ");
+				count = sc.nextInt();
+				//Calculate util gain/loss
+				utilCalculate(choice, count);
+			}
 
+		} while (choice != 4);
 		
 	}
-	//Accepts one argument and returns one value
-	public static int icecreamChoice(String n){
+	
+	public static int iceCreamChoice(String n){ //Accepts one argument and returns one value
 		//Prompt user for action
 		System.out.printf("Enter next action of %s > ", n);
 		choice = sc.nextInt();
@@ -41,4 +44,22 @@ public class Lab4a {
 		return choice;
 	}
 	
+	public static int utilCalculate(int a, int b) { //Calculate utils from choice and count
+		int c = 0;
+		switch (a) {
+		case 1:
+			c = 3 * b;
+			break;
+		case 2:
+			c = -5 * b;
+			break;
+		case 3: default:
+			c = 0;
+		}
+		//Print outcome
+		System.out.printf("This action caused %d utils of happiness\n", c);
+		//Add outcome to total utils
+		utils += c;
+		return utils;
+	}
 }
