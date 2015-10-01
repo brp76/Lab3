@@ -6,9 +6,9 @@ public class Lab4a {
 	
 	public static void main(String[] args) {
 		String name;
-		
 		int count = 0;
 		
+		//Ask user for name
 		System.out.print("What is your name? > ");
 		name = sc.next();
 		
@@ -28,9 +28,11 @@ public class Lab4a {
 				//Calculate util gain/loss
 				utilCalculate(choice, count);
 			}
-
 		} while (choice != 4);
 		
+		//Display total utils and moral status
+		System.out.printf("%s caused %d total utils of happiness.\n",name, utils);
+		moralStatus();	
 	}
 	
 	public static int iceCreamChoice(String n){ //Accepts one argument and returns one value
@@ -61,5 +63,15 @@ public class Lab4a {
 		//Add outcome to total utils
 		utils += c;
 		return utils;
+	}
+	
+	public static void moralStatus() { //Determine if good, neutral, or bad
+		if (utils > 0) {
+			System.out.println("This was a morally good life :)");
+		} else if (utils < 0) {
+			System.out.println("This was a morally evil life :(");
+		} else if (utils == 0) {
+			System.out.println("This was a morally neutral life :1");
+		}
 	}
 }
